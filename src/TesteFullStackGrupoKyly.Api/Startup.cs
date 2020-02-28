@@ -53,6 +53,8 @@ namespace TesteFullStackGrupoKyly.Api
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
             });
+
+            services.AddCors();
         }
 
         /// <summary>
@@ -71,13 +73,19 @@ namespace TesteFullStackGrupoKyly.Api
             app.UseRouting();
             app.UseAuthorization();
 
-
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Teste Fullstack Grupo Kyly - v1");
                 c.RoutePrefix = string.Empty;
+            });
+
+            app.UseCors(opt =>
+            {
+                opt.AllowAnyMethod()
+                .AllowAnyOrigin()
+                .AllowAnyHeader();
             });
 
             app.UseEndpoints(endpoints =>
