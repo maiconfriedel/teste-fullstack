@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using TesteFullStackGrupoKyly.Core.Interfaces.Gateways;
 using TesteFullStackGrupoKyly.Infrastructure.Repositories;
 

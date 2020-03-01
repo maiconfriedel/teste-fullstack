@@ -69,9 +69,22 @@ namespace TesteFullStackGrupoKyly.Api
         /// <param name="env">Environment (Dev, Stage, Prod)</param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                var builder = new ConfigurationBuilder()
+                    .SetBasePath(env.ContentRootPath)
+                    .AddJsonFile("appsettings.json",
+                                optional: false,
+                                reloadOnChange: true)
+                    .AddEnvironmentVariables();
+
+                builder.AddUserSecrets(Assembly.GetExecutingAssembly());
+
             }
 
             app.UseHttpsRedirection();

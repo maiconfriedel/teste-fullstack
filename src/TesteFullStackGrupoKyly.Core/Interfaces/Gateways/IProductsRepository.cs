@@ -14,7 +14,9 @@ namespace TesteFullStackGrupoKyly.Core.Interfaces.Gateways
         /// Busca produtos
         /// </summary>
         /// <param name="searchFilter">Filtro de busca, pode ser qualquer coluna</param>
+        /// <param name="pageIndex">Index da página</param>
+        /// <param name="pageSize">Quantidade de itens por página</param>
         /// <returns>Lista de produtos</returns>
-        Task<IEnumerable<Product>> GetProductsAsync(string searchFilter);
+        Task<IEnumerable<Product>> GetProductsPaginatedAsync(string searchFilter, int pageIndex, int pageSize);
     }
 }
