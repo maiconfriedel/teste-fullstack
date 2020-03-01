@@ -1,39 +1,36 @@
-namespace TesteFullStackGrupoKyly.Api.Models
+namespace TesteFullStackGrupoKyly.Core.Domain
 {
-    /// <summary>
-    /// Dados de produto
-    /// </summary>
     public class Product
     {
         /// <summary>
         /// Identificador do produto
         /// </summary>
-        public string Id { get; set; }
+        public string Id { get; }
 
         /// <summary>
         /// Identificador da referência do produto
         /// </summary>
-        public string Reference { get; set; }
+        public string Reference { get; }
 
         /// <summary>
         /// Descrição do produto
         /// </summary>
-        public string Description { get; set; }
+        public string Description { get; }
 
         /// <summary>
         /// Descrição da cor
         /// </summary>
-        public string ColorDescription { get; set; }
+        public string ColorDescription { get; }
 
         /// <summary>
         /// Tamanho (sequência)
         /// </summary>
-        public int SizeSequence { get; set; }
+        public int SizeSequence { get; }
 
         /// <summary>
         /// Descrição do tamanho
         /// </summary>
-        public string SizeDescription { get; set; }
+        public string SizeDescription { get; }
 
         /// <summary>
         /// Construtor para instância existente
@@ -69,14 +66,6 @@ namespace TesteFullStackGrupoKyly.Api.Models
             ColorDescription = colorDescription;
             SizeSequence = sizeSequence;
             SizeDescription = sizeDescription;
-        }
-
-        /// <summary>
-        /// Construtor vazio para preencher valores manualmente
-        /// </summary>
-        public Product()
-        {
-
         }
     }
 }

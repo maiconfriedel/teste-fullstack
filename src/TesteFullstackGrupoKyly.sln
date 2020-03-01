@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteFullStackGrupoKyly.Api", "TesteFullStackGrupoKyly.Api\TesteFullStackGrupoKyly.Api.csproj", "{05712A60-F975-410F-B27F-7B6EFD296390}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteFullStackGrupoKyly.Core", "TesteFullStackGrupoKyly.Core\TesteFullStackGrupoKyly.Core.csproj", "{ABBD6431-DA1A-4005-A853-F4F787B5EA28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteFullStackGrupoKyly.Infrastructure", "TesteFullStackGrupoKyly.Infrastructure\TesteFullStackGrupoKyly.Infrastructure.csproj", "{BC05910E-B5C0-419F-8341-C20FCACFA41D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{05712A60-F975-410F-B27F-7B6EFD296390}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05712A60-F975-410F-B27F-7B6EFD296390}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05712A60-F975-410F-B27F-7B6EFD296390}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABBD6431-DA1A-4005-A853-F4F787B5EA28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABBD6431-DA1A-4005-A853-F4F787B5EA28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABBD6431-DA1A-4005-A853-F4F787B5EA28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABBD6431-DA1A-4005-A853-F4F787B5EA28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC05910E-B5C0-419F-8341-C20FCACFA41D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC05910E-B5C0-419F-8341-C20FCACFA41D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC05910E-B5C0-419F-8341-C20FCACFA41D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC05910E-B5C0-419F-8341-C20FCACFA41D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

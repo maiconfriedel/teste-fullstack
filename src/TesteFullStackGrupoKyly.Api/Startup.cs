@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using TesteFullStackGrupoKyly.Core;
+using TesteFullStackGrupoKyly.Infrastructure;
 
 namespace TesteFullStackGrupoKyly.Api
 {
@@ -55,6 +57,9 @@ namespace TesteFullStackGrupoKyly.Api
             });
 
             services.AddCors();
+
+            services.AddTesteFullStackGrupoKylyCore();
+            services.AddTesteFullStackGrupoKylyInfrastructure();
         }
 
         /// <summary>
