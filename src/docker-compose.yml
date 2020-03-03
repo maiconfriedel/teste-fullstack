@@ -1,0 +1,11 @@
+version: "3"
+services:
+  api:
+    restart: "no"
+
+    build:
+      context: .
+      dockerfile: "api.Dockerfile"
+
+    ports:
+      - 5001:5001
