@@ -1,5 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using TesteFullStackGrupoKyly.Core.Interfaces.Gateways;
+using TesteFullStackGrupoKyly.Infrastructure.EntityFramework;
 using TesteFullStackGrupoKyly.Infrastructure.Repositories;
 
 namespace TesteFullStackGrupoKyly.Infrastructure
@@ -13,8 +15,9 @@ namespace TesteFullStackGrupoKyly.Infrastructure
         /// <returns>Serviços adicionados</returns>
         public static IServiceCollection AddTesteFullStackGrupoKylyInfrastructure(this IServiceCollection services)
         {
-
             services.AddTransient<IProductsRepository, ProductsRepository>();
+
+            services.AddDbContext<TesteFullstackDbContext>(options => options.UseInMemoryDatabase("TesteFullstack"));
 
             return services;
         }

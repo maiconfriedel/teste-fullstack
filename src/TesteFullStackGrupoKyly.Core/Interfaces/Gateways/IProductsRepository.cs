@@ -16,6 +16,6 @@ namespace TesteFullStackGrupoKyly.Core.Interfaces.Gateways
         /// <param name="pageIndex">Index da página</param>
         /// <param name="pageSize">Quantidade de itens por página</param>
         /// <returns>Lista de produtos</returns>
-        PaginatedList<Product> GetProductsPaginatedAsync(string searchFilter, int pageIndex, int pageSize);
+        Task<PaginatedList<Product>> GetProductsPaginatedAsync(string searchFilter, int pageIndex, int pageSize);
     }
 }

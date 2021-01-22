@@ -34,9 +34,9 @@ namespace TesteFullStackGrupoKyly.Api.Controllers
         /// <param name="filters">Filtros para busca de produto</param>
         /// <returns>Lista de produtos</returns>
         [HttpGet]
-        public Models.PaginatedList<Product> Get([FromQuery] SearchProductFilters filters)
+        public async Task<Models.PaginatedList<Product>> Get([FromQuery] SearchProductFilters filters)
         {
-            var response = _productsRepository.GetProductsPaginatedAsync(filters.SearchFilter, filters.PageIndex, filters.PageSize);
+            var response = await _productsRepository.GetProductsPaginatedAsync(filters.SearchFilter, filters.PageIndex, filters.PageSize);
 
             return new Models.PaginatedList<Product>
             {

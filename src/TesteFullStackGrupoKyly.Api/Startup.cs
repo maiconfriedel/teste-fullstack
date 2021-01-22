@@ -82,6 +82,8 @@ namespace TesteFullStackGrupoKyly.Api
                 builder.AddUserSecrets(Assembly.GetExecutingAssembly());
             }
 
+            app.PopulateDatabase(Configuration);
+
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();

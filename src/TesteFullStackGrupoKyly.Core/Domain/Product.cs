@@ -19,8 +19,8 @@ namespace TesteFullStackGrupoKyly.Core.Domain
 
         /// <summary>
         /// Cor
-        /// </summary>        
-        public string Color { get; set; }
+        /// </summary>
+        public string Color { get; }
 
         /// <summary>
         /// Descrição da cor
