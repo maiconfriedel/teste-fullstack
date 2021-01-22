@@ -21,6 +21,11 @@ namespace TesteFullStackGrupoKyly.Api.Models
         public string Description { get; set; }
 
         /// <summary>
+        /// Código da cor
+        /// </summary>
+        public string Color { get; set; }
+
+        /// <summary>
         /// Descrição da cor
         /// </summary>
         public string ColorDescription { get; set; }
@@ -41,14 +46,16 @@ namespace TesteFullStackGrupoKyly.Api.Models
         /// <param name="id">Identificador do produto</param>
         /// <param name="reference">Identificador da referência do produto</param>
         /// <param name="description">Descrição do produto</param>
+        /// <param name="color">Código da cor</param>
         /// <param name="colorDescription">Descrição da cor</param>
         /// <param name="sizeSequence">Tamanho (sequência)</param>
         /// <param name="sizeDescription">Descrição do tamanho</param>
-        public Product(string id, string reference, string description, string colorDescription, int sizeSequence, string sizeDescription)
+        public Product(string id, string reference, string description, string color, string colorDescription, int sizeSequence, string sizeDescription)
         {
             Id = id;
             Reference = reference;
             Description = description;
+            Color = color;
             ColorDescription = colorDescription;
             SizeSequence = sizeSequence;
             SizeDescription = sizeDescription;
@@ -59,13 +66,15 @@ namespace TesteFullStackGrupoKyly.Api.Models
         /// </summary>
         /// <param name="reference">Identificador da referência do produto</param>
         /// <param name="description">Descrição do produto</param>
+        /// <param name="color">Código da cor</param>
         /// <param name="colorDescription">Descrição da cor</param>
         /// <param name="sizeSequence">Tamanho (sequência)</param>
         /// <param name="sizeDescription">Descrição do tamanho</param>
-        public Product(string reference, string description, string colorDescription, int sizeSequence, string sizeDescription)
+        public Product(string reference, string description, string color, string colorDescription, int sizeSequence, string sizeDescription)
         {
             Reference = reference;
             Description = description;
+            Color = color;
             ColorDescription = colorDescription;
             SizeSequence = sizeSequence;
             SizeDescription = sizeDescription;
@@ -76,7 +85,6 @@ namespace TesteFullStackGrupoKyly.Api.Models
         /// </summary>
         public Product()
         {
-
         }
     }
 }

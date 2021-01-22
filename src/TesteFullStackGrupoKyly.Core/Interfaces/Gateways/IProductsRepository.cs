@@ -9,7 +9,6 @@ namespace TesteFullStackGrupoKyly.Core.Interfaces.Gateways
     /// </summary>
     public interface IProductsRepository
     {
-
         /// <summary>
         /// Busca produtos
         /// </summary>
@@ -17,6 +16,6 @@ namespace TesteFullStackGrupoKyly.Core.Interfaces.Gateways
         /// <param name="pageIndex">Index da página</param>
         /// <param name="pageSize">Quantidade de itens por página</param>
         /// <returns>Lista de produtos</returns>
-        Task<IEnumerable<Product>> GetProductsPaginatedAsync(string searchFilter, int pageIndex, int pageSize);
+        PaginatedList<Product> GetProductsPaginatedAsync(string searchFilter, int pageIndex, int pageSize);
     }
 }

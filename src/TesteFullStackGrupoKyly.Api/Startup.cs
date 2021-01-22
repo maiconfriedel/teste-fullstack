@@ -32,7 +32,7 @@ namespace TesteFullStackGrupoKyly.Api
         public IConfiguration Configuration { get; }
 
         /// <summary>
-        /// Método para adicionar serviços ao container 
+        /// Método para adicionar serviços ao container
         /// </summary>
         /// <param name="services">Serviços a serem adicionados no container</param>
         public void ConfigureServices(IServiceCollection services)
@@ -49,7 +49,6 @@ namespace TesteFullStackGrupoKyly.Api
                                 Version = "v1",
                                 Contact = new OpenApiContact() { Email = "maicon.friedel@gmail.com", Name = "Maicon Gabriel Friedel", Url = new Uri("https://github.com/maiconfriedel") }
                             });
-
 
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
@@ -69,9 +68,6 @@ namespace TesteFullStackGrupoKyly.Api
         /// <param name="env">Environment (Dev, Stage, Prod)</param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-
-
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -84,7 +80,6 @@ namespace TesteFullStackGrupoKyly.Api
                     .AddEnvironmentVariables();
 
                 builder.AddUserSecrets(Assembly.GetExecutingAssembly());
-
             }
 
             app.UseHttpsRedirection();

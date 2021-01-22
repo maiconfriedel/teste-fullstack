@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace TesteFullStackGrupoKyly.Infrastructure
+namespace TesteFullStackGrupoKyly.Core
 {
     /// <summary>
     /// Lista páginada
@@ -23,13 +23,12 @@ namespace TesteFullStackGrupoKyly.Infrastructure
         /// <summary>
         /// Total de páginas
         /// </summary>
-        public int TotalCount { get; private set; }
+        public int TotalItems { get; private set; }
 
         /// <summary>
         /// Total de páginas
         /// </summary>
         public int TotalPages { get; private set; }
-
 
         /// <summary>
         /// Construtor da classe
@@ -37,14 +36,17 @@ namespace TesteFullStackGrupoKyly.Infrastructure
         /// <param name="source">Lista a ser paginada</param>
         /// <param name="pageIndex">Index da página que deseja obter</param>
         /// <param name="pageSize">Quantidade de itens por página</param>
-        public PaginatedList(IEnumerable<T> source, int pageIndex, int pageSize)
+        public PaginatedList(IEnumerable<T> source, int pageIndex = 1, int pageSize = 10)
         {
             PageIndex = pageIndex;
             PageSize = pageSize;
-            TotalCount = source.Count();
-            TotalPages = (int)Math.Ceiling(TotalCount / (double)PageSize);
+            TotalItems = source.Count();
+            TotalPages = (int)Math.Ceiling(TotalItems / (double)PageSize);
 
-            this.AddRange(source.Skip(PageIndex * PageSize).Take(PageSize));
+            if (source != null)
+            {
+                this.AddRange(source.Skip(PageIndex * PageSize).Take(PageSize));
+            }
         }
 
         /// <summary>
