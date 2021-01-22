@@ -36,7 +36,7 @@ namespace TesteFullStackGrupoKyly.Core
         /// <param name="source">Lista a ser paginada</param>
         /// <param name="pageIndex">Index da página que deseja obter</param>
         /// <param name="pageSize">Quantidade de itens por página</param>
-        public PaginatedList(IEnumerable<T> source, int pageIndex = 1, int pageSize = 10)
+        public PaginatedList(IEnumerable<T> source, int pageIndex = 1, int pageSize = 15)
         {
             PageIndex = pageIndex;
             PageSize = pageSize;

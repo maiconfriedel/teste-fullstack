@@ -18,6 +18,6 @@ namespace TesteFullStackGrupoKyly.Api.Models.Request
         /// <summary>
         /// Qtde itens por página
         /// </summary>
-        public int PageSize { get; set; } = 10;
+        public int PageSize { get; set; } = 15;
     }
 }

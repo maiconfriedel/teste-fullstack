@@ -49,16 +49,5 @@ namespace TesteFullStackGrupoKyly.Api.Controllers
                 TotalPages = response.TotalPages
             };
         }
-
-        /// <summary>
-        /// Buscar produto
-        /// </summary>
-        /// <param name="id">Identificador do produto</param>
-        /// <returns>Dados de um produto</returns>
-        [HttpGet("{id}")]
-        public ActionResult<Product> Get(string id)
-        {
-            return new Product { Id = id };
-        }
     }
 }
