@@ -45,7 +45,7 @@ namespace TesteFullStackGrupoKyly.Core
 
             if (source != null)
             {
-                this.AddRange(source.Skip(PageIndex * PageSize).Take(PageSize));
+                this.AddRange(source.Skip((PageIndex - 1) * PageSize).Take(PageSize));
             }
         }
 

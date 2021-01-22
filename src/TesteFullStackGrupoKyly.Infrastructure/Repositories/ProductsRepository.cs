@@ -40,36 +40,57 @@ namespace TesteFullStackGrupoKyly.Infrastructure.Repositories
         {
             if (File.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, _configuration.GetConnectionString("Kyly"))))
             {
-                //var relevantList1 = from l in File.ReadLines(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"sample_db/lista_relevancia_1.txt"), Encoding.GetEncoding("iso-8859-1"))
-                //select l;
-
-                //var relevantList2 = from l in File.ReadLines(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"sample_db/lista_relevancia_2.txt"), Encoding.GetEncoding("iso-8859-1"))
-                //select l;
-
                 var products = (from l in File.ReadLines(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, _configuration.GetConnectionString("Kyly")), Encoding.GetEncoding("iso-8859-1")).Skip(1)
                                 let x = l.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToArray()
                                 select new Product(x[0], x[1], x[2], x[3], x[4], int.Parse(x[5]), x[6])
-                            )
-                            //.OrderBy(a => a.Reference == "204654R")
-                            //.ThenBy(a => relevantList2.Contains(a.Reference))
-                            //.ThenBy(a => a.Reference)
-                            .ToArray();
-
-                PaginatedList<Product> paginated = new PaginatedList<Product>(products, pageIndex, pageSize);
+                                ).ToList();
 
                 if (!string.IsNullOrWhiteSpace(searchFilter))
                 {
                     int.TryParse(searchFilter, out int searchFilterInt);
 
-                    paginated = (PaginatedList<Product>)paginated.Where(a => a.Id == searchFilter ||
-                                                                             a.Reference == searchFilter ||
-                                                                             a.Description == searchFilter ||
-                                                                             a.Color == searchFilter ||
-                                                                             a.ColorDescription == searchFilter ||
-                                                                             a.SizeDescription == searchFilter ||
-                                                                             a.SizeSequence == searchFilterInt
-                                                                             );
+                    products = products.Where(a => a.Id == searchFilter ||
+                                                   a.Reference == searchFilter ||
+                                                   a.Description == searchFilter ||
+                                                   a.Color == searchFilter ||
+                                                   a.ColorDescription == searchFilter ||
+                                                   a.SizeDescription == searchFilter ||
+                                                   a.SizeSequence == searchFilterInt).ToList();
                 }
+
+                var relevantList1 = (from l in File.ReadLines(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"sample_db/lista_relevancia_1.txt"), Encoding.GetEncoding("iso-8859-1"))
+                                     select l).ToArray();
+
+                var relevantList2 = (from l in File.ReadLines(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"sample_db/lista_relevancia_2.txt"), Encoding.GetEncoding("iso-8859-1"))
+                                     select l).ToArray();
+
+                List<Product> orderedProducts = new List<Product>();
+
+                foreach (var item in relevantList1)
+                {
+                    var add = products.Where(a => a.Reference == item).OrderBy(a => a.Id).ToList();
+
+                    if (add != null)
+                    {
+                        orderedProducts.AddRange(add);
+                        products.RemoveAll(a => add.Contains(a));
+                    }
+                }
+
+                foreach (var item in relevantList2)
+                {
+                    var add = products.Where(a => a.Reference == item).OrderBy(a => a.Id).ToList();
+
+                    if (add != null)
+                    {
+                        orderedProducts.AddRange(add);
+                        products.RemoveAll(a => add.Contains(a));
+                    }
+                }
+
+                orderedProducts.AddRange(products.OrderBy(a => a.Id).ToList());
+
+                PaginatedList<Product> paginated = new PaginatedList<Product>(orderedProducts, pageIndex, pageSize);
 
                 return paginated;
             }
