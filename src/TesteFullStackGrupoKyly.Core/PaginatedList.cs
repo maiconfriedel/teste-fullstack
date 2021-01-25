@@ -56,7 +56,7 @@ namespace TesteFullStackGrupoKyly.Core
         {
             get
             {
-                return (PageIndex > 0);
+                return (PageIndex > 1);
             }
         }
 
